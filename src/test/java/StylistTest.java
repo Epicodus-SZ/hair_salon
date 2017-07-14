@@ -51,4 +51,13 @@ public class StylistTest {
     assertEquals(testClient2.getId(), testStylist.listClients().get(1).getId());
   }
 
+  @Test
+  public void update_updatesStylistShopIdInDB_true() {
+    Stylist testStylist = new Stylist("Tony Stark");
+    testStylist.save();
+    testStylist.setShopId(23);
+    testStylist.update();
+    assertEquals(23,Stylist.find(testStylist.getId()).getShopId());
+  }
+
 }

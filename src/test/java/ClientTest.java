@@ -15,7 +15,7 @@ public class ClientTest {
 
   @Test
   public void find_findsClientInDB_true() {
-    Client testClient = new Client("Hulk Hogan", "206-555-1212");
+    Client testClient = new Client("Hulk Hogan");
     testClient.save();
     Client dbClient = Client.find(testClient.getId());
     assertEquals(dbClient.getId(), testClient.getId());

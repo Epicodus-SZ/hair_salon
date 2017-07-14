@@ -15,9 +15,20 @@ public class Stylist {
     this.shopId = 0;
   }
 
+//getters////////////////////////////////////////////
   public int getId(){
     return this.id;
   }
+
+  public int getShopId(){
+    return this.shopId;
+  }
+
+//setters///////////////////////////////////////////
+  public void setShopId(int id){
+    this.shopId = id;
+  }
+
   public static Stylist find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists where id=:id";
@@ -53,6 +64,17 @@ public class Stylist {
     return con.createQuery(sql)
       .addParameter("stylistId", this.id)
       .executeAndFetch(Client.class);
+  }
+}
+
+public void update() {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "UPDATE stylists SET phone = :phone, shopId = :shopId WHERE id = :id";
+    con.createQuery(sql)
+    .addParameter("phone", this.phone)
+    .addParameter("shopId", this.shopId)
+      .addParameter("id", this.id)
+      .executeUpdate();
   }
 }
 

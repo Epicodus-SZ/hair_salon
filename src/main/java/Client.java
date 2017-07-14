@@ -6,21 +6,22 @@ public class Client {
   private String phone;
   private int stylistId;
 
-  //the constructor
-  public Client(String name, String phone){
+  //constructor
+  public Client(String name, String phone, int stylistId){
     this.name = name;
     this.phone = phone;
-    this.stylistId = 0;
+    this.stylistId = stylistId;
   }
 
-  //constructor2
+  //constructor2 with defaults
   public Client(String name){
-    this(name, "000-000-0000");
+    this(name, "000-000-0000", 0);
   }
 
   public int getId(){
     return this.id;
   }
+
   public static Client find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients where id=:id";
