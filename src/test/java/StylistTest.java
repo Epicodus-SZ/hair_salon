@@ -28,4 +28,13 @@ public class StylistTest {
     Stylist dbStylist = Stylist.find(testStylist.getId());
     assertEquals(dbStylist.getId(), testStylist.getId());
   }
+
+  @Test
+  public void all_returnsListOfAllStylists_true() {
+    Stylist testStylist = new Stylist("Tony Stark");
+    testStylist.save();
+    Stylist testStylist2 = new Stylist("Bruce Banner");
+    testStylist2.save();
+    assertEquals(testStylist2.getId(),Stylist.all().get(1).getId());
+  }
 }

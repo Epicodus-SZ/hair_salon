@@ -1,4 +1,6 @@
 import org.sql2o.*;
+import java.util.List;
+
 
 public class Stylist {
   private int id;
@@ -37,5 +39,12 @@ public class Stylist {
         .getKey();
     }
   }
+
+  public static List<Stylist> all() {
+   String sql = "SELECT id, name, phone, shopId FROM stylists";
+   try(Connection con = DB.sql2o.open()) {
+     return con.createQuery(sql).executeAndFetch(Stylist.class);
+   }
+ }
 
 }
