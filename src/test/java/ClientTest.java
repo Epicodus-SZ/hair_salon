@@ -38,4 +38,13 @@ public class ClientTest {
     assertEquals(7,Client.find(testClient.getId()).getStylistId());
   }
 
+  @Test
+  public void delete_deletesClientFromDB_true() {
+    Client testClient = new Client("Hulk Hogan");
+    testClient.save();
+    assertEquals(1,Client.all().size());
+    Client.delete(testClient.getId());
+    assertEquals(0,Client.all().size());
+  }
+
 }

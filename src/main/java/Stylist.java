@@ -12,7 +12,7 @@ public class Stylist {
   public Stylist(String name){
     this.name = name;
     this.phone = "000-000-0000";
-    this.shopId = 0;
+    this.shopId = 1;
   }
 
 //getters////////////////////////////////////////////
@@ -24,9 +24,25 @@ public class Stylist {
     return this.shopId;
   }
 
+  public String getName(){
+    return this.name;
+  }
+
 //setters///////////////////////////////////////////
   public void setShopId(int id){
     this.shopId = id;
+  }
+
+
+  @Override
+  public boolean equals(Object otherStylist) {
+    if (!(otherStylist instanceof Stylist)) {
+      return false;
+    } else {
+      Stylist newStylist = (Stylist) otherStylist;
+      return this.getName().equals(newStylist.getName()) &&
+             this.getShopId() == newStylist.getShopId();
+    }
   }
 
   public static Stylist find(int id) {
@@ -56,6 +72,21 @@ public class Stylist {
    try(Connection con = DB.sql2o.open()) {
      return con.createQuery(sql).executeAndFetch(Stylist.class);
    }
+ }
+
+ public static void delete(int id) {
+   try(Connection con = DB.sql2o.open()) {
+     //first reassign users to stylist 0
+     String reassignUserSQL = "UPDATE clients SET stylistId = 0 WHERE stylistId = :id";;
+     con.createQuery(reassignUserSQL)
+       .addParameter("id", id)
+       .executeUpdate();
+
+     String deleteStylistSQL = "DELETE FROM stylists WHERE id = :id;";
+     con.createQuery(deleteStylistSQL)
+       .addParameter("id", id)
+       .executeUpdate();
+   } //end of try
  }
 
  public List<Client> listClients() {

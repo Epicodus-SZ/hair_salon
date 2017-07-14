@@ -35,7 +35,7 @@ public class StylistTest {
     testStylist.save();
     Stylist testStylist2 = new Stylist("Bruce Banner");
     testStylist2.save();
-    assertEquals(testStylist2.getId(),Stylist.all().get(1).getId());
+    assertEquals(testStylist2.getId(),Stylist.all().get(2).getId());
   }
 
   @Test
@@ -58,6 +58,18 @@ public class StylistTest {
     testStylist.setShopId(23);
     testStylist.update();
     assertEquals(23,Stylist.find(testStylist.getId()).getShopId());
+  }
+
+  @Test
+  public void delete_reassignsClientsToStylist0_true() {
+    Stylist testStylist = new Stylist("Tony Stark");
+    testStylist.save();
+    Client testClient = new Client("Jack Sparrow");
+    testClient.assignToStylist(testStylist.getId());
+    testClient.save();
+    assertEquals(testStylist.getId(),Client.find(testClient.getId()).getStylistId());
+    Stylist.delete(testStylist.getId());
+    assertEquals(0,Client.find(testClient.getId()).getStylistId());
   }
 
 }
