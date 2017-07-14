@@ -9,7 +9,23 @@ public class ClientTest {
 
   @Test
   public void Client_instantiatesCorrectly_true() {
-    Client testClient = new Client();
+    Client testClient = new Client("Hulk Hogan");
     assertEquals(true, testClient instanceof Client);
+  }
+
+  @Test
+  public void find_findsClientInDB_true() {
+    Client testClient = new Client("Hulk Hogan", "206-555-1212");
+    testClient.save();
+    Client dbClient = Client.find(testClient.getId());
+    assertEquals(dbClient.getId(), testClient.getId());
+  }
+
+  @Test
+  public void save_savesClientIntoDB_true() {
+    Client testClient = new Client("Steve Zaske");
+    testClient.save();
+    Client dbClient = Client.find(testClient.getId());
+    assertEquals(dbClient.getId(), testClient.getId());
   }
 }
