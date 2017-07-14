@@ -18,8 +18,13 @@ public class Client {
     this(name, "000-000-0000", 0);
   }
 
+  //getters////////////////////////////////////////////
   public int getId(){
     return this.id;
+  }
+
+  public int getStylistId(){
+    return this.stylistId;
   }
 
   public static Client find(int id) {
@@ -46,6 +51,18 @@ public class Client {
 
   public void assignToStylist(int stylistId){
     this.stylistId = stylistId;
+  }
+
+  public void update() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET name = :name, phone = :phone, stylistId = :stylistId WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", this.name)
+        .addParameter("phone", this.phone)
+        .addParameter("stylistId", this.stylistId)
+        .addParameter("id", this.id)
+        .executeUpdate();
+    }
   }
 
 }

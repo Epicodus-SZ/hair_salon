@@ -28,4 +28,14 @@ public class ClientTest {
     Client dbClient = Client.find(testClient.getId());
     assertEquals(dbClient.getId(), testClient.getId());
   }
+
+  @Test
+  public void update_updatesClientStylistInDB_true() {
+    Client testClient = new Client("Hulk Hogan");
+    testClient.save();
+    testClient.assignToStylist(7);
+    testClient.update();
+    assertEquals(7,Client.find(testClient.getId()).getStylistId());
+  }
+
 }
