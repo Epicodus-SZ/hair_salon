@@ -10,7 +10,7 @@ public class Client {
   public Client(String name, String phone){
     this.name = name;
     this.phone = phone;
-    this.stylistId = 1;
+    this.stylistId = 0;
   }
 
   //constructor2
