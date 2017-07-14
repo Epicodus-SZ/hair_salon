@@ -41,7 +41,8 @@ CREATE TABLE clients (
     id integer NOT NULL,
     name character varying,
     phone character varying,
-    stylistid integer
+    stylistid integer,
+    shopid integer
 );
 
 
@@ -121,7 +122,12 @@ ALTER TABLE ONLY stylists ALTER COLUMN id SET DEFAULT nextval('stylists_id_seq':
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY clients (id, name, phone, stylistid) FROM stdin;
+COPY clients (id, name, phone, stylistid, shopid) FROM stdin;
+1	Hulk Hogan	206-555-1212	2	\N
+3	Donna Summers	222-232-1212	0	4
+6	Please DelEteme	503-555-1212	3	23
+7	Taylor Swift	212-433-6060	1	26
+8	Natalie Portman	303-448-9056	1	26
 \.
 
 
@@ -129,7 +135,7 @@ COPY clients (id, name, phone, stylistid) FROM stdin;
 -- Name: clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('clients_id_seq', 1, false);
+SELECT pg_catalog.setval('clients_id_seq', 8, true);
 
 
 --
@@ -137,6 +143,10 @@ SELECT pg_catalog.setval('clients_id_seq', 1, false);
 --
 
 COPY stylists (id, name, phone, shopid) FROM stdin;
+2	Tony Stark	515-555-1212	2
+3	Edward Sissorhands	666-503-7878	23
+0	None	None	0
+1	Steve Zaske	206-898-8989	26
 \.
 
 
@@ -144,7 +154,7 @@ COPY stylists (id, name, phone, shopid) FROM stdin;
 -- Name: stylists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('stylists_id_seq', 1, false);
+SELECT pg_catalog.setval('stylists_id_seq', 6, true);
 
 
 --
