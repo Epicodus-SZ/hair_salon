@@ -37,4 +37,18 @@ public class StylistTest {
     testStylist2.save();
     assertEquals(testStylist2.getId(),Stylist.all().get(1).getId());
   }
+
+  @Test
+  public void listClients_returnsListOfClientsAssignedToStylist_true() {
+    Stylist testStylist = new Stylist("Tony Stark");
+    testStylist.save();
+    Client testClient = new Client("Madonna");
+    testClient.assignToStylist(testStylist.getId());
+    testClient.save();
+    Client testClient2 = new Client("Jack Sparrow");
+    testClient2.assignToStylist(testStylist.getId());
+    testClient2.save();
+    assertEquals(testClient2.getId(), testStylist.listClients().get(1).getId());
+  }
+
 }

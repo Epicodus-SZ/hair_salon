@@ -43,4 +43,8 @@ public class Client {
     }
   }
 
+  public void assignToStylist(int stylistId){
+    this.stylistId = stylistId;
+  }
+
 }
