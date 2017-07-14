@@ -33,6 +33,10 @@ public class Stylist {
     this.shopId = id;
   }
 
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
 
   @Override
   public boolean equals(Object otherStylist) {
