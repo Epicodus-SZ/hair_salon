@@ -1,0 +1,13 @@
+<!--client-details.vtl-->
+<h1>Client: $client.getName()</h1>
+
+INFO:<br>
+<b>Name:</b> $client.getName()<br>
+<b>Cell:</b> $client.getPhone()<br>
+<b>Stylist:</b> <a href="/stylists/$client.getStylistId()">$client.getStylist()</a><br>
+<b>Shop:</b> $client.getShopId()<br>
+<br>
+
+<a href="/clients/$client.getId()/update">Edit Client</a> | <a href="/clients/$client.getId()/delete">Delete $client.getName()</a>
+<br><br>
+<!--client-details.vtl-->

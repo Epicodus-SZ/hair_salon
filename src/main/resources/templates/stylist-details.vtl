@@ -1,0 +1,18 @@
+<!--stylist-details.vtl-->
+<h1>Stylist: $stylist.getName()</h1>
+
+INFO:<br>
+<b>Name:</b> $stylist.getName()<br>
+<b>Cell:</b> $stylist.getPhone()<br>
+<b>Shop:</b> $stylist.getShopId()<br>
+<br>
+<b>Clients:</b><br>
+<ul>
+  #foreach($client in $stylist.listClients())
+   <li><a href="/clients/$client.getId()">$client.getName()</a></li>
+  #end
+</ul>
+
+<a href="/stylists/$stylist.getId()/update">Update $stylist.getName()</a> | <a href="/stylists/$stylist.getId()/delete">Delete $stylist.getName()</a>
+<br><br>
+<!--stylist-details.vtl-->

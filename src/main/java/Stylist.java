@@ -28,7 +28,15 @@ public class Stylist {
     return this.name;
   }
 
+  public String getPhone(){
+    return this.phone;
+  }
+
 //setters///////////////////////////////////////////
+  public void setName(String name){
+    this.name = name;
+  }
+
   public void setShopId(int id){
     this.shopId = id;
   }
@@ -104,10 +112,11 @@ public class Stylist {
 
 public void update() {
   try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE stylists SET phone = :phone, shopId = :shopId WHERE id = :id";
+    String sql = "UPDATE stylists SET name = :name, phone = :phone, shopId = :shopId WHERE id = :id";
     con.createQuery(sql)
-    .addParameter("phone", this.phone)
-    .addParameter("shopId", this.shopId)
+      .addParameter("name", this.name)
+      .addParameter("phone", this.phone)
+      .addParameter("shopId", this.shopId)
       .addParameter("id", this.id)
       .executeUpdate();
   }

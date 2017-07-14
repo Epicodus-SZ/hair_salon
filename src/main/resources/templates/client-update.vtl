@@ -1,0 +1,18 @@
+<!--client-update.vtl-->
+<h1>Update Client</h1>
+
+<form action="/clients/$client.getId()/update" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text" value="$client.getName()"><br>
+  <label for="phone">Cell #</label>
+  <input id="phone" name="phone" type="text" value="$client.getPhone()"><br>
+  <label for="stylist">Assign to stylist</label>
+  <select id="stylist" name="stylist">
+  #foreach ($stylist in $stylists)<option #if( $stylist.getId()==$client.getStylistId() )
+  selected="selected"#end value="$stylist.getId()">$stylist.getName()</option>
+  #end</select><br>
+
+
+  <button type="submit" class="btn btn-success">Update Client Record</button>
+</form>
+<!--client-update.vtl-->

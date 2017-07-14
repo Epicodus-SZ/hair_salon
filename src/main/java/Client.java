@@ -27,13 +27,42 @@ public class Client {
     return this.id;
   }
 
+  public String getName(){
+    return this.name;
+  }
+
+  public String getPhone(){
+    return this.phone;
+  }
+
   public int getStylistId(){
     return this.stylistId;
   }
 
+  public String getStylist(){
+    return Stylist.find(this.stylistId).getName();
+  }
+
+  public int getShopId(){
+    return this.shopId;
+  }
+
   //setters////////////////////////////////////////////
+
+  public void setName(String name){
+    this.name = name;
+  }
+
+  public void setPhone(String phone){
+    this.phone = phone;
+  }
+
   public void assignToStylist(int stylistId){
     this.stylistId = stylistId;
+  }
+
+  public void assignToShop(int shopId){
+    this.shopId = shopId;
   }
 
   //methods////////////////////////////////////////////

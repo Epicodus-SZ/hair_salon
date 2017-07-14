@@ -1,0 +1,17 @@
+<!--client-new.vtl-->
+<h1>New Client</h1>
+
+<form action="/clients" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text"><br>
+  <label for="phone">Cell #</label>
+  <input id="phone" name="phone" type="text"><br>
+  <label for="stylist">Assign to stylist</label>
+  <select id="stylist" name="stylist">
+  #foreach ($stylist in $stylists)<option value="$stylist.getId()">$stylist.getName()</option>
+  #end</select><br>
+
+
+  <button type="submit" class="btn btn-success">Add Client</button>
+</form>
+<!--client-new.vtl-->

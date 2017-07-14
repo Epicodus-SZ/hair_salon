@@ -1,15 +1,25 @@
-to restore the database type the following from the command prompt in the solution root folder:
+# hair_salon
+A website manages stylists and clients written in Java.  Originally coded on 7/14/2017.  By Steve Zaske
+
+Direct questions and comments to: [github@zaske.com](mailto:github@zaske.com)
+
+## Databse Restore Process
+To restore the database type the following from the command prompt in the solution root folder:
 
 $ sh db_restore.sh
 
+## Technologies Used
+* Java (http://docs.oracle.com/javase/8/docs/)
+* Spark (http://sparkjava.com/documentation)
+* Velocity (http://velocity.apache.org/)
+* Gradle (https://gradle.org/)
+* Postgres
 
-User stories:
+### License
+Copyright 2017 Steve Zaske
 
-1. As a salon employee, I need to be able to see a list of all our stylists.
-2. As an employee, I need to be able to select a stylist, see their details, and see a list of all clients that belong to that stylist.
-3. As an employee, I need to add new stylists to our system when they are hired.
-4. As an employee, I need to be able to add new clients to a specific stylist.
-5. As an employee, I need to be able to update a stylist's details.
-6. As an employee, I need to be able to update a client's details.
-7. As an employee, I need to be able to delete a stylist if they're no longer employed here. (What happens to the clients?)
-8. As an employee, I need to be able to delete a client if they no longer visit our salon.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

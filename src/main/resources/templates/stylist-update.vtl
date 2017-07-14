@@ -1,0 +1,16 @@
+<!--stylist-update.vtl-->
+<h1>Update Stylist</h1>
+
+<form action="/stylists/$stylist.getId()/update" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text" value="$stylist.getName()"><br>
+  <label for="phone">Cell #</label>
+  <input id="phone" name="phone" type="text" value="$stylist.getPhone()"><br>
+  <label for="stylist">Assign to stylist</label>
+  <label for="shopId">Shop #</label>
+  <input id="shopId" name="shopId" type="text" value="$stylist.getShopId()">
+  <br>
+
+  <button type="submit" class="btn btn-success">Update Stylist Record</button>
+</form>
+<!--stylist-update.vtl-->
